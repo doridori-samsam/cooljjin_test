@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쿨찐 테스트</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">쿨찐 테스트</a>
+    </header>
+    <section>
+      <article>
+        <h2>문제1</h2>
+        <p>설명1</p>
+        <input type="radio" id="q1-yes" name="q1" class="yes-btn" />
+        <label for="q1-yes">Yes</label>
+        <input type="radio" id="q1-no" name="q1" class="no-btn" />
+        <label for="q1-no">No</label>
+        <input type="radio" id="q1-maybe" name="q1" class="maybe-btn" />
+        <label for="q1-maybe">Maybe</label>
+      </article>
+      <article>
+        <h2>문제2</h2>
+        <p>설명2</p>
+        <input type="radio" id="q2-yes" name="q2" class="yes-btn" />
+        <label for="q2-yes">Yes</label>
+        <input type="radio" id="q2-no" name="q2" class="no-btn" />
+        <label for="q2-no">No</label>
+        <input type="radio" id="q2-maybe" name="q2" class="maybe-btn" />
+        <label for="q2-maybe">Maybe</label>
+      </article>
+    </section>
+    <footer>
+      <a onclick="result()">결과보기</a>
+    </footer>
+    <script>
+      function result() {
+        let yes_count = 0;
+        let no_count = 0;
+        let elements = document.getElementsByClassName("yes-btn");
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].checked ? yes_count++ : null;
+        }
+
+        elements = document.getElementsByClassName("no-btn");
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].checked ? no_count++ : null;
+        }
+
+        elements = document.getElementsByClassName("maybe-btn");
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].checked ? yes_count++ : null;
+        }
+        if (yes_count == 2) {
+          location.href = "result3.html";
+        } else if (yes_count == 1) {
+          location.href = "result2.html";
+        } else {
+          location.href = "result1.html";
+        }
+      }
+    </script>
+  </body>
+</html>
